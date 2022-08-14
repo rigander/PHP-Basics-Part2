@@ -1,7 +1,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #FFFFFF;
+	background-color: #3088c2;
 	color: #000000;
 	font-family: Arial, Helvetica, sans-serif;
 	border-top: 2px solid #2A4F6F;
@@ -9,11 +9,11 @@ body {
 #header {
 	border-top: 1px solid #778899;
 	border-bottom: 1px dotted #B2BCC6;
-	height:3em;
+	height: 200px;
 }
 #header .slogan {
-	font: 120% Georgia, "Times New Roman", Times, serif;
-	color: #778899;
+	font: 150% Georgia, "Times New Roman", Times, serif;
+	color: #cb1630;
 	background-color: transparent;
 	float: right;
 	width: 300px;
@@ -24,12 +24,13 @@ body {
 #header .logo {
 	float: left;
 	width: 187px;
+	height: 187px;
 	margin-left: 1.5em;
 	margin-top: 0.5em;
 }
 #nav {
 	position: absolute;
-	top: 5em;
+	top: 13em;
 	left: 1em;
 	width: 14em;
 }
@@ -45,11 +46,11 @@ body {
 }
 #nav a:link, #nav a:visited {
 	text-decoration: none;
-	color: #2A4F6F;
+	color: black;
 	background-color: transparent;
 }
 #nav a:hover {
-	color: #778899;
+	color: #bb002c;
 }
 #nav h2 {
 	font: 110% Georgia, "Times New Roman", Times, serif;
