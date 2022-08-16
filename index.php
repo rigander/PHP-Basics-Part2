@@ -1,12 +1,13 @@
 <?php 
-  include 'inc/headers.inc.php'; 
+  include 'inc/headers.inc.php';
+  require 'inc/cookie.inc.php';
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
   <title>
-      <?= $title?>
+      <?= $title ?>
   </title>
   <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href="inc/style.css" />
@@ -17,13 +18,29 @@
   <div id="header">
     <!-- Верхняя часть страницы -->
     <img src="Rabbit.png" width="187" height="29" alt="Наш логотип" class="logo" />
-    <span class="slogan">Semper Idem</span>
+    <span class="slogan">Acta non verba</span>
     <!-- Верхняя часть страницы -->
   </div>
 
   <div id="content">
     <!-- Заголовок -->
     <h1><?= $header?></h1>
+      <blockquote style="font-size: 20px;">
+          <?php
+          if ($visitCounter == 0 || !$visitCounter){
+              echo "Thanks for visiting us!";
+              echo "<br/>";
+          } elseif($visitCounter > 1){
+              echo "You have visited us {$_COOKIE["visitCounter"]} times";
+              echo "<br/>";
+              echo "Your last visit was {$_COOKIE["lastVisit"]}";
+          } else {
+              echo "Thanks for visiting us!";
+              echo "<br/>";
+          }
+          ?>
+          <br/>
+      </blockquote>
     <!-- Заголовок -->
     <!-- Область основного контента -->
     <?php 
