@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -21,7 +21,7 @@ else {
 	<title>Демонстрация сессии</title>
 </head>
 
-<body>
+<body style="background-color: #2A4F6F">
 <h1>Демонстрация сессии</h1>
 <a href="session-2.php">Демо сессии</a><br>
 <a href="session_destroy.php">Закрыть сессию</a><br><br>
@@ -33,7 +33,7 @@ else {
 	<input type="text" name="age" value="<?=$age?>"><br>
 	<input type="submit" value="Передать">
 </form>
-<?
+<?php
 if ($name and $age) {	
 	if ($name and $age) {
 		echo "<h1>Привет, $name</h1>";
