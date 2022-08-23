@@ -1,7 +1,11 @@
 <?php 
   include 'inc/headers.inc.php';
   require 'inc/cookie.inc.php';
+// Имя файла журнала
+const PATH_LOG = 'path.log';
+include 'inc/log.inc.php';
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -65,6 +69,8 @@
       <li><a href='index.php?id=gbook'>Guest book</a>
       </li>
       <li><a href='eshop/catalog.php'>Shopping</a>
+      </li>
+      <li><a href='index.php?id=log'>Журнал посещений</a>
       </li>
     </ul>
     <!-- Навигация -->
