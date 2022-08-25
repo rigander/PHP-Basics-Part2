@@ -6,3 +6,7 @@ August 23, 2022, 5:48 am|/index.php?id=log|http://mysite.local/index.php
 August 23, 2022, 5:48 am|/index.php|http://mysite.local/index.php?id=log
 August 23, 2022, 5:49 am|/index.php?id=log|http://mysite.local/index.php
 August 23, 2022, 5:51 am|/index.php?id=log|http://mysite.local/index.php
+August 25, 2022, 6:03 am|index|index.php?id=log
+August 25, 2022, 6:03 am|contact|index.php
+August 25, 2022, 6:03 am|info|index.php?id=contact
+August 25, 2022, 6:03 am|log|index.php?id=info
