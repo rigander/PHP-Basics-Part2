@@ -2,10 +2,15 @@
 <?php
 
 	if($_SERVER['REQUEST_METHOD']=='POST'){
-		print_r($_FILES);
+		var_dump($_FILES);
+        $n = $_FILES['userfile']['name'];
+        $t = $_FILES['userfile']['tmp_name'];
+        move_uploaded_file($t, $n);
 	}
 ?>
-<form action='upload.php' method='post' enctype='multipart/form-data'>
+<form action='upload.php' method='post'
+      enctype='multipart/form-data'>
 <input type='file' name='userfile'>
 <input type='submit'>
 </form>
+

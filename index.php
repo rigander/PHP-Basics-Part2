@@ -4,6 +4,7 @@
 // Имя файла журнала
 const PATH_LOG = 'path.log';
 include 'inc/log.inc.php';
+$dir = scandir(".");
 ?>
 
 <!DOCTYPE html>
@@ -50,6 +51,12 @@ include 'inc/log.inc.php';
     <?php 
       include 'inc/routing.inc.php'; 
     ?>
+      <?php
+      var_dump($dir);
+      if (is_file($dir[5])){
+        echo "true";
+      };
+      ?>
     <!-- Область основного контента -->
   </div>
   <div id="nav">
@@ -81,5 +88,4 @@ include 'inc/log.inc.php';
       <!-- Нижняя часть страницы -->
   </div>
 </body>
-
 </html>
