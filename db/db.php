@@ -1,9 +1,9 @@
 <?php
 $link = mysqli_connect('localhost', 'root', '', 'web');
-
-echo "SELECT * FROM teachers where id=$x";
-$result = mysqli_query($link, );
-echo myswli_error($link);
+$result = mysqli_query($link, "SET NAMES 'utf8'");
+$sql =  "SELECT * FROM teachers";
+$result = mysqli_query($link, $sql);
+echo mysqli_error($link);
 mysqli_close($link);
 
 // TODO(2/2) 02:50. Основные манипуляции с сервером баз данных. Запросы в sql бывают двух типов: 1) Безответные и 2) Ответные.
@@ -18,3 +18,20 @@ mysqli_close($link);
 //  $result = mysqli_query($link, 'SELECT * FROM teachers'); но теперь в эту
 //  переменную придет false если все плохо либо объект. то есть таблица
 //  упакованная в виде объекта.
+
+
+// TODO Обрабатываем результат fetch - привести или принести.
+//  $row = mysqli_fetch_array($result); при этом действии
+//  создаётся массив и далее для каждого поля создается два
+//  элемента массива один элемент под именем второй по позиции с нуля.
+
+$row = mysqli_fetch_array($result); // TODO Индексированный массив
+$row = mysqli_fetch_array($result, MYSQLI_NUM);
+
+// todo Ассоциативный массив
+$row = mysqli_fetch_assoc($result);
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+// todo Полная выборка: массив массивов
+$row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+print_r($row);
