@@ -1,7 +1,7 @@
 <?php
 $link = mysqli_connect('localhost', 'root', '', 'web');
 $result = mysqli_query($link, "SET NAMES 'utf8'");
-$sql =  "SELECT * FROM teachers";
+$sql =  "SELECT name FROM teachers";
 $result = mysqli_query($link, $sql);
 echo mysqli_error($link);
 mysqli_close($link);
