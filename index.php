@@ -22,8 +22,8 @@ $dir = scandir(".");
 
   <div id="header">
     <!-- Верхняя часть страницы -->
-    <img src="Rabbit.png" width="187" height="29" alt="Наш логотип" class="logo" />
-    <span class="slogan">Acta non verba</span>
+    <img src="C_R.png" width="187" height="29" alt="Наш логотип" class="logo" />
+    <span class="slogan">Cōgitō ergō sum</span>
     <!-- Верхняя часть страницы -->
   </div>
 
