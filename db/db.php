@@ -35,3 +35,15 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 // todo Полная выборка: массив массивов
 $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
 print_r($row);
+
+// TODO Полезные функции.
+//  Экранируем строки! Часто строки в базах данных передаются в апострофах, например
+//  многие ирландские фамилии O'Brian O'Neil etc. Если так оставить то php не верно воспримет код.
+//    Апострофы нужно экранировать. Для того что бы не пользоваться \ символом используется
+//  специальная функция mysqli_real_escape_string(); Закон такой все строки пропускаются через
+//  эту функцию!!!
+//  .
+//      Пример!
+//  .
+//  $name = mysqli_real_escape_string($link, "John O'Brian");
+//  $sql = "INSERT INTO teachers(name, email) VALUES('$name', 'johnh@gmail.com')";
