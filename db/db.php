@@ -63,4 +63,20 @@ print_r($row);
 //  .
 //  $name = mysqli_real_escape_string($link, "John O'Brian");
 //  $sql = "INSERT INTO teachers(name, email) VALUES('$name', 'johnh@gmail.com')";
+//  Если мы хотим узнать число недавно измененных записей то это удобо сделать
+//  при помощи функции mysqli_affected_rows($link);
+//  .
+//      Пример!
+//  .
+//  $sql = "DELETE FROM lessons WHERE room = 'БК-1'";
+//  mysqli_query($link, $sql);
+//   Сколько записей изменено?
+//  $count = mysqli_affected_rows($link);
+//  $sql = "SELECT * FROM courses";
+//  $result = mysqli_query($link, $sql);
+//  Еще пару полезных функций.
+//   Сколько записей вернулось?
+//  $row_count = mysqli_num_rows($result);
+//  Сколько полей в вернувшихся записях?
+//  $fields_count = mysqli_num_fields($result);
 
