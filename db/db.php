@@ -1,3 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../inc/db_style.css" />
+    <title>DB</title>
+</head>
+<body>
+<div class="db_body"></div>
+</body>
+</html>
+
+
 <?php
 $link = mysqli_connect('localhost', 'root', '', 'web');
 $result = mysqli_query($link, "SET NAMES 'utf8'");
@@ -47,3 +63,4 @@ print_r($row);
 //  .
 //  $name = mysqli_real_escape_string($link, "John O'Brian");
 //  $sql = "INSERT INTO teachers(name, email) VALUES('$name', 'johnh@gmail.com')";
+
