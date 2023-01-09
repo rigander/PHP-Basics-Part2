@@ -1,7 +1,14 @@
 <?php
 /* Основные настройки */
-
-/* Основные настройки */
+// TODO Laba 8. Создаём основные константы и присваиваем им значения.
+const DB_HOST = "localhost";
+const DB_LOGIN = "root";
+const DB_PASSWORD = 'пустая строка';
+const DB_NAME = "gbook";
+// TODO Устанавливаем соединение с сервером базы данных MySQL,
+//  выбрав необходимую для работы базу данных
+$link = mysqli_connect(DB_HOST, DB_LOGIN,
+    DB_PASSWORD, DB_NAME) or die(mysqli_connect_error());
 
 /* Сохранение записи в БД */
 
