@@ -10,8 +10,17 @@ const DB_NAME = "gbook";
 $link = mysqli_connect(DB_HOST, DB_LOGIN,
     DB_PASSWORD, DB_NAME) or die(mysqli_connect_error());
 
-/* Сохранение записи в БД */
+function clearStr($data){
+   $data = trim(strip_tags($data));
+   return mysqli_real_escape_string($link, $data);
+}
 
+/* Сохранение записи в БД */
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    $name = clearStr($_POST["name"]);
+    $email = clearStr($_POST["email"]);
+    $msg = clearStr($_POST["msg"]);
+}
 /* Сохранение записи в БД */
 
 /* Удаление записи из БД */
