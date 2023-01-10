@@ -11,6 +11,7 @@ $link = mysqli_connect(DB_HOST, DB_LOGIN,
     DB_PASSWORD, DB_NAME) or die(mysqli_connect_error());
 
 function clearStr($data){
+    global $link;
    $data = trim(strip_tags($data));
    return mysqli_real_escape_string($link, $data);
 }
@@ -20,6 +21,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $name = clearStr($_POST["name"]);
     $email = clearStr($_POST["email"]);
     $msg = clearStr($_POST["msg"]);
+
+    //TODO делаем sql запрос
+    $sql = "INSERT INTO msgs (name, email, msg)
+            VALUES ('$name', '$email', '$msg')";
+
+    //TODO посылаем sql запрос
+    mysqli_query($link, $sql);
+
+    //TODO после того как послали запрос, избавляемся от буфера
+    //  метода POST. Перезагружаем страничку.
+    header("Location: " . $_SERVER["REQUEST_URI"]);
+    exit;
 }
 /* Сохранение записи в БД */
 
