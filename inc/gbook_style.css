@@ -1,0 +1,42 @@
+body{
+    background-color: #2A4F6F;
+}
+h3{
+    color: #B2BCC6;
+}
+.dv{
+    margin: 0;
+    padding: 10px 0 0 25px;
+}
+input{
+    background-image: linear-gradient(135deg, #e46c33 40%, #d25616);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+textarea{
+    background-image: linear-gradient(135deg, #e46c33 40%, #d25616);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    resize: none;
+    height: 100px;
+    width: 220px;
+}
+.btn{
+    width: 10em;
+    height: 5ex;
+    background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+.btn:active{
+    box-shadow: 2px 2px 5px #fc894d;
+}

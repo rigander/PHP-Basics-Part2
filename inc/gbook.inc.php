@@ -40,20 +40,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 /* Удаление записи из БД */
 ?>
-<h3>Оставьте запись в нашей Гостевой книге</h3>
+    <link rel="stylesheet" type="text/css" href="gbook_style.css" />
+    <body>
+        <div class="dv">
+            <h3>Please leave your feedback in out guest book</h3>
+            <form method="post" action="<?= $_SERVER['REQUEST_URI'] ?>">
+                Name: <br/><input type="text" name="name"/><br/>
+                <br>
+                Email: <br/><input type="text" name="email"/><br/>
+                <br>
+                Message: <br/><textarea name="msg"></textarea><br/>
+                <br/>
+                <input  class="btn" type="submit" value="SEND!"/>
 
-<form method="post" action="<?= $_SERVER['REQUEST_URI']?>">
-Имя: <br /><input type="text" name="name" /><br />
-Email: <br /><input type="text" name="email" /><br />
-Сообщение: <br /><textarea name="msg"></textarea><br />
-
-<br />
-
-<input type="submit" value="Отправить!" />
-
-</form>
+            </form>
+        </div>
+    </body>
 <?php
 /* Вывод записей из БД */
-
+//todo установить временную метку плюс DESC означает
+// что последняя запись будет выводится первой
+$sql = "SELECT id, name, email, msg,
+            UNIX_TIMESTAMP(datetime) as dt FROM msgs ORDER BY id DESC";
+$res =  mysqli_query($link, $sql);
 /* Вывод записей из БД */
+//todo выводим при помощи mysqli_num_rows() значение общего количества записей
+echo "<p>Total amount of entries in guest book:</p>" .
+    mysqli_num_rows($res);
+//todo выводим эти записи при помощи цикла
+
+while ($row = mysqli_fetch_assoc($result)){
+    $dt = date("d-m-Y H:i:s", $row["dt"]);
+    echo <<<MSG
+    <p> 
+    <a href="mailto:vasya@narod.ru">Вася Пупкин</a>
+     21-01-2015 в 13:45 написал
+     <br />Привет всем! Давайте дружить. 
+     </p> <p> 
+     <a href="http://mysite.local/index.php?id=gbook&del=1">Удалить</a>
+     </p>
+MSG;
+
+}
 ?>
