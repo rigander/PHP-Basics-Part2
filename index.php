@@ -1,4 +1,5 @@
-<?php 
+<?php
+  ob_start();
   include 'inc/headers.inc.php';
   require 'inc/cookie.inc.php';
 // Имя файла журнала
