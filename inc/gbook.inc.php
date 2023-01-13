@@ -37,7 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 /* Сохранение записи в БД */
 
 /* Удаление записи из БД */
-
+ if (isset($_GET["del"])){
+    $id = abs((int)$_GET["del"]);
+    if ($id){
+        $sql = "DELETE FROM msgs WHERE id = $id";
+        mysqli_query($link, $sql);
+    }
+ }
 /* Удаление записи из БД */
 ?>
     <link rel="stylesheet" type="text/css" href="gbook_style.css" />
@@ -73,13 +79,15 @@ while ($row = mysqli_fetch_assoc($res)){
     $dt = date("d-m-Y H:i:s", $row["dt"]);
     $msg = nl2br($row["msg"]);
     //todo сообщение выводимое на экран уложено <<< любая метка (MSG, HEREDOC etc.)
-    // и в конце таже закрывающая метка MSG или HEREDOC (к примеру)
+    // и в конце та же закрывающая метка MSG или HEREDOC (к примеру)
+    //todo Удаление. Когда человек нажимает на ссылку. По ссылке методом GET прилетает
+    // параметр del с id.
     echo <<<MSG
     <p> 
     <a href="{$row['email']}">{$row['name']}</a>
     {$dt} написал <br/>{$msg} 
      </p align="right"> 
-     <a href="http://mysite.local/index.php?id=gbook&del={$row['id']}">Удалить</a>
+       <a href="http://mysite.local/index.php?id=gbook&del={$row['id']}">Удалить</a>
      </p>
 MSG;
 }
