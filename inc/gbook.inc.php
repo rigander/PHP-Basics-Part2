@@ -69,17 +69,18 @@ echo "<p>Total amount of entries in guest book:</p>" .
     mysqli_num_rows($res);
 //todo выводим эти записи при помощи цикла
 
-while ($row = mysqli_fetch_assoc($result)){
+while ($row = mysqli_fetch_assoc($res)){
     $dt = date("d-m-Y H:i:s", $row["dt"]);
+    $msg = nl2br($row["msg"]);
+    //todo сообщение выводимое на экран уложено <<< любая метка (MSG, HEREDOC etc.)
+    // и в конце таже закрывающая метка MSG или HEREDOC (к примеру)
     echo <<<MSG
     <p> 
-    <a href="mailto:vasya@narod.ru">Вася Пупкин</a>
-     21-01-2015 в 13:45 написал
-     <br />Привет всем! Давайте дружить. 
-     </p> <p> 
-     <a href="http://mysite.local/index.php?id=gbook&del=1">Удалить</a>
+    <a href="{$row['email']}">{$row['name']}</a>
+    {$dt} написал <br/>{$msg} 
+     </p align="right"> 
+     <a href="http://mysite.local/index.php?id=gbook&del={$row['id']}">Удалить</a>
      </p>
 MSG;
-
 }
 ?>
