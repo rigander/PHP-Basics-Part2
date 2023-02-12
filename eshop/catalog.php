@@ -13,11 +13,11 @@
 <p>Товаров в <a href="basket.php">корзине</a>: <?= $count?></p>
 <table border="1" cellpadding="5" cellspacing="0" width="100%">
 <tr>
-	<th>Название</th>
-	<th>Автор</th>
-	<th>Год издания</th>
-	<th>Цена, руб.</th>
-	<th>В корзину</th>
+	<th>Name</th>
+	<th>Author</th>
+	<th>Year published</th>
+	<th>Price, USD</th>
+	<th>To Cart</th>
 </tr>
 <?php
 
