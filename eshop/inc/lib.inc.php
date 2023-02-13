@@ -1,5 +1,5 @@
 <?php
-// TODO Файл Библиотека Случаев. На каждое действие: добавление, создание, выборка,
+// todo Файл Библиотека Случаев. На каждое действие: добавление, создание, выборка,
 //  и т.д. будет написана своя функция.
 function clearStr($data){
     // todo Функция принимает данные затем стрипит, тримит,
@@ -17,7 +17,7 @@ function clearStr($data){
 
 function clearInt($data){
     // todo Функция преобразует в int число и
-    //  приводит числа к абсолютному значение
+    //  приводит числа к абсолютному значению
     //  (модуль числа).
     return abs((int)$data);
 }
@@ -33,5 +33,19 @@ function addItemToCatalog($title, $author, $pubyear, $price){
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     return true;
+}
+
+function selectAllItems(){
+    $sql = 'SELECT id, title, author, pubyear, price FROM catalog';
+    global $link;
+    // todo mysqli_query — Выполняет запрос к базе данных
+    //  если запрос не исполнился мы вываливаемся из функции.
+    if(!$result = mysqli_query($link, $sql)) return false;
+    // todo mysql_fetch_assoc — Возвращает ряд результата запроса
+    //   в качестве ассоциативного массива.
+    $items = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    // todo Освобождает память, занятую результатами запроса.
+    mysqli_free_result($result);
+    return $items;
 }
 

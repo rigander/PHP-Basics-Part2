@@ -8,6 +8,7 @@
 <head>
 	<title>Поступившие заказы</title>
 	<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../../inc/style.css" />
 </head>
 <body>
 <h1>Поступившие заказы:</h1>
