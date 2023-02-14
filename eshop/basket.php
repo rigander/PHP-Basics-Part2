@@ -8,28 +8,29 @@
 <head>
 	<meta charset="utf-8">
 	<title>Корзина пользователя</title>
+    <link rel="stylesheet" type="text/css" href="../../inc/style.css" />
 </head>
 <body>
-	<h1>Ваша корзина</h1>
+	<h1>Your purchase order</h1>
 <?php
 
 ?>
 <table border="1" cellpadding="5" cellspacing="0" width="100%">
 <tr>
 	<th>N п/п</th>
-	<th>Название</th>
-	<th>Автор</th>
-	<th>Год издания</th>
-	<th>Цена, руб.</th>
-	<th>Количество</th>
-	<th>Удалить</th>
+	<th>Name</th>
+	<th>Author</th>
+	<th>Year published</th>
+	<th>Price, usd</th>
+	<th>Quantity</th>
+	<th>Delete</th>
 </tr>
 <?php
 	
 ?>
 </table>
 
-<p>Всего товаров в корзине на сумму: руб.</p>
+<p>Всего товаров в корзине на сумму: usd</p>
 
 <div align="center">
 	<input type="button" value="Оформить заказ!"

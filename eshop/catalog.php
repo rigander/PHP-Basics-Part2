@@ -21,6 +21,7 @@
 	<th>To Cart</th>
 </tr>
 <?php
+var_dump($_GET);
 $goods = selectAllItems();
 // todo Проверки на результат отработки функции: если false
 //  то ошибка, если ноль, то есть массив пуст, то сообщение empty.
@@ -32,8 +33,8 @@ foreach($goods as $item){
         <td><?= $item['author']?></td>
         <td><?= $item['pubyear']?></td>
         <td><?= $item['price']?></td>
-        <td><a href="add2basket.php"
-                id="<?= $item['id']?>">В корзину</a></td> </tr> <? }
+        <td><a href="add2basket.php?id=<?= $item['id']?>">В
+        корзину</a></td> </tr> <?php }
 ?>
 </table>
 </body>
