@@ -2,6 +2,8 @@
 	// подключение библиотек
 	require "inc/lib.inc.php";
 	require "inc/config.inc.php";
+    basketInit();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +23,6 @@
 	<th>To Cart</th>
 </tr>
 <?php
-var_dump($_GET);
 $goods = selectAllItems();
 // todo Проверки на результат отработки функции: если false
 //  то ошибка, если ноль, то есть массив пуст, то сообщение empty.
