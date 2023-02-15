@@ -60,7 +60,6 @@ function saveBasket(){
     global $basket;
     $basket = base64_encode(serialize($basket));
     setcookie('basket',$basket, -1);
-    var_dump($_COOKIE);
 }
 
 function basketInit(){

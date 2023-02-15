@@ -2,8 +2,7 @@
 	// подключение библиотек
 	require "inc/lib.inc.php";
 	require "inc/config.inc.php";
-    basketInit();
-
+    global $count;
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../../inc/style.css" />
 </head>
 <body>
-<p>Товаров в <a href="basket.php">корзине</a>: <?= $count?></p>
+<p>Goods in <a href="basket.php">basket</a>: <?= $count?></p>
 <table border="1" cellpadding="5" cellspacing="0" width="100%">
 <tr>
 	<th>Name</th>
@@ -34,8 +33,8 @@ foreach($goods as $item){
         <td><?= $item['author']?></td>
         <td><?= $item['pubyear']?></td>
         <td><?= $item['price']?></td>
-        <td><a href="add2basket.php?id=<?= $item['id']?>">В
-        корзину</a></td> </tr> <?php }
+        <td><a href="add2basket.php?id=<?= $item['id']?>">Add to cart
+            </a></td> </tr> <?php }
 ?>
 </table>
 </body>
