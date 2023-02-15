@@ -27,7 +27,7 @@ $goods = selectAllItems();
 //  то ошибка, если ноль, то есть массив пуст, то сообщение empty.
 if ($goods === false){echo "ERROR!"; exit;}
 if (!count($goods)){echo "EMPTY"; exit;}
-
+debugArray($goods);
 foreach($goods as $item){
     ?> <tr> <td><?= $item['title']?></td>
         <td><?= $item['author']?></td>

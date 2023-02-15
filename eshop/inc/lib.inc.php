@@ -94,3 +94,11 @@ function add2Basket($id){
     saveBasket();
 }
 
+function debugArray($array){
+    $log = date('Y-m-d H:i:s') . ' ';
+    $log .= str_replace(array('	', PHP_EOL), '',
+        print_r($array, true));
+    file_put_contents(__DIR__ . '../../debug_log.txt', $log . PHP_EOL,
+        FILE_APPEND);
+}
+
