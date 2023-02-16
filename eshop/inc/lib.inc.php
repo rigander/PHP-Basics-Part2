@@ -94,6 +94,41 @@ function add2Basket($id){
     saveBasket();
 }
 
+function result2Array($data){
+    // todo mysql_fetch_assoc — Возвращает ряд результата запроса
+    //  в качестве ассоциативного массива.
+    global $basket;
+    $arr = [];
+    while($row = mysqli_fetch_assoc($data))
+    { $row['quantity'] = $basket[$row['id']];
+        $arr[] = $row;
+    }
+    return $arr;
+}
+function myBasket(){
+    // todo array_keys — Возвращает все или некоторое подмножество ключей массива.
+    //  array_shift — Извлекает (удаляет) первый элемент массива.
+    //  implode — Объединяет элементы массива в строку.
+    //  mysqli_query — Выполняет запрос к базе данных.
+    //  mysqli_free_result — Освобождает память от результата запроса.
+    global $link, $basket;
+    $goods = array_keys($basket);
+    array_shift($goods);
+    if (!$goods)
+        return false;
+    $ids = implode(",", $goods);
+    $sql = "SELECT id, author, title, pubyear, price
+            FROM catalog WHERE id IN ($ids)";
+    if(!$result = mysqli_query($link, $sql))
+        return false;
+    $items = result2Array($result);
+    mysqli_free_result($result);
+    return $items;
+}
+
+
+
+
 function debugArray($array){
     $log = date('Y-m-d H:i:s') . ' ';
     $log .= str_replace(array('	', PHP_EOL), '',
