@@ -10,9 +10,17 @@
 	<title>Корзина пользователя</title>
     <link rel="stylesheet" type="text/css" href="../../inc/style.css" />
 </head>
-<body>
+<body style="padding: 10px">
 	<h1>Your purchase order</h1>
 <?php
+myBasket();
+global $items;
+if (!$items){
+    echo "Корзина пуста! Вернитесь в " ?>
+    <a href="catalog.php">каталог</a><br><br><?php
+}else{
+    echo "Вернуться в" ?><a href="catalog.php">каталог</a>;<?php
+}
 
 ?>
 <table border="1" cellpadding="5" cellspacing="0" width="100%">
