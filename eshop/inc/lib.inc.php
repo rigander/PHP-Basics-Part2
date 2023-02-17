@@ -114,6 +114,7 @@ function myBasket(){
     global $link, $basket;
     $goods = array_keys($basket);
     array_shift($goods);
+    // todo Проверка на то что массив не пуст. 
     if (!$goods)
         return false;
     $ids = implode(",", $goods);
