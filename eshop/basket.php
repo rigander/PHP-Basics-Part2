@@ -46,7 +46,7 @@ foreach ($goods as $item){
         <td><?= $item['pubyear']?></td>
         <td><?= $item['price']?></td>
         <td><?= $item['quantity']?></td>
-        <td><a href="delete_from_basket.php.php?id=<?= $item['id']?>">Delete
+        <td><a href="delete_from_basket.php?id=<?= $item['id']?>">Delete
             </a></td> </tr> <?php
         $sum += $item['price'] * $item['quantity'];
 }

@@ -127,7 +127,11 @@ function myBasket(){
     return $items;
 }
 
-
+function deleteItemFromBasket($id){
+    global $basket;
+    unset($basket[$id]);
+    saveBasket();
+}
 
 
 function debugArray($array){
