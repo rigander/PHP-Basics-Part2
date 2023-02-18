@@ -204,6 +204,7 @@ function getOrders(){
 }
 
 
+
 function debugArray($array){
     $log = date('Y-m-d H:i:s') . ' ';
     $log .= str_replace(array('	', PHP_EOL), '',
