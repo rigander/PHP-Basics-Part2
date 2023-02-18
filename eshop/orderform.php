@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Форма оформления заказа</title>
+    <link rel="stylesheet" type="text/css" href="../../inc/style.css" />
 </head>
 <body>
 	<h1>Оформление заказа</h1>
