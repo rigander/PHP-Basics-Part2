@@ -161,6 +161,49 @@ function saveOrder($datetime){
     return true;
 }
 
+function getOrders(){
+    global $link;
+    // todo is_file - определяет, является ли файл обычным файлом и существует ли.
+    if (!is_file(ORDERS_LOG))
+        return false;
+    // todo file() — Читает содержимое файла и помещает его в массив.
+    //  Получаем в виде массива персональные данные пользователей из файла.
+    $orders = file(ORDERS_LOG);
+    // todo Массив, который будет возвращен функцией.
+    $allorders = [];
+    foreach ($orders as $order) {
+        // todo list — Присваивает переменным из списка значения подобно массиву.
+        //  explode — Разбивает строку с помощью разделителя.
+        list($name, $email, $phone, $address, $orderid, $date) =
+            explode("|", $order);
+    // todo Промежуточный массив для хранения информации о конкретном заказе.
+    $orderinfo = [];
+    // todo  Сохранение информацию о конкретном пользователе.
+        $orderinfo["name"] = $name;
+        $orderinfo["email"] = $email;
+        $orderinfo["phone"] = $phone;
+        $orderinfo["address"] = $address;
+        $orderinfo["orderid"] = $orderid;
+        $orderinfo["date"] = $date;
+    }
+    // todo SQL-запрос на выборку из таблицы orders всех товаров для
+    //  конкретного покупателя.
+    $sql = "SELECT title, author, pubyear, price,
+            quantity FROM orders WHERE orderid = '$orderid'
+                                   AND datetime = $date";
+    // todo Получение результата выборки
+    if(!$result = mysqli_query($link, $sql))
+        return false;
+    $items = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    mysqli_free_result($result);
+    // todo Сохранение результата в промежуточном массиве
+    //  Добавление промежуточного массива в возвращаемый массив.
+    $orderinfo["goods"] = $items;
+    $allorders[] = $orderinfo;
+    return $allorders;
+}
+
+
 function debugArray($array){
     $log = date('Y-m-d H:i:s') . ' ';
     $log .= str_replace(array('	', PHP_EOL), '',
