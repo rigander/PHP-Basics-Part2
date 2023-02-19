@@ -1,17 +1,18 @@
-<?
+<?php
 require_once "session.inc.php";
 require_once "secure.inc.php";
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Создание пользователя</title>
+	<title>Create User</title>
 	<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../../../inc/style.css" />
 </head>
 
 <body>
-<h1>Создание пользователя</h1>
-<?
+<h1>Create user</h1>
+<?php
 $login = 'root';
 $password = '1234';
 $result = '';

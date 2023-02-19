@@ -3,6 +3,10 @@
 	require "../inc/lib.inc.php";
 	require "../inc/config.inc.php";
     $orders = getOrders();
+    if (!$orders){
+        echo "No pending orders";
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html>
